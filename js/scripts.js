@@ -23,18 +23,17 @@ $("form#new-contact").submit(function(event){
   var inputtedState= $("input#new-state").val();
 
   var newContact = new Contact(inputtedFirstName,inputtedLastName,inputtedStreet,inputtedCity,inputtedState);
-  console.log(newContact.street);
   $("ul#contacts").append("<li><span class ='contact'>" + newContact.fullName() + "</span></li>");
 
-  $("input#new-first-name").val();
-  $("input#new-last-name").val();
-  $("input#new-street").val();
-  $("input#new-city").val();
-  $("input#new-state").val();
+  $("input#new-first-name").val("");
+  $("input#new-last-name").val("");
+  $("input#new-street").val("");
+  $("input#new-city").val("");
+  $("input#new-state").val("");
 
     $(".contact").last().click(function() {
       $("#show-contact").show();
-      $("#show-contact h2").text(newContact.firstName);
+      $("#show-contact h2").text(newContact.fullName());
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
       $(".street").text(newContact.street);
